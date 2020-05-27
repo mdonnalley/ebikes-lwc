@@ -36,7 +36,6 @@
                 </template>
                 <template if:true={categories.error}>
                     <c-error-panel
-                        type="inlineMessage"
                         friendly-message="Error loading categories"
                         errors={categories.error}
                     ></c-error-panel>
@@ -62,7 +61,6 @@
                 </template>
                 <template if:true={materials.error}>
                     <c-error-panel
-                        type="inlineMessage"
                         friendly-message="Error loading materials"
                         errors={materials.error}
                     ></c-error-panel>
@@ -85,7 +83,6 @@
                 </template>
                 <template if:true={levels.error}>
                     <c-error-panel
-                        type="inlineMessage"
                         friendly-message="Error loading levels"
                         errors={levels.error}
                     ></c-error-panel>

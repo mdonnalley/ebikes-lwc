@@ -1,28 +1,21 @@
 import { LightningElement, api } from 'lwc';
 import { reduceErrors } from 'c/ldsUtils';
-import noDataIllustration from './templates/noDataIllustration.html';
-import inlineMessage from './templates/inlineMessage.html';
+import NODATA_SVG from '@salesforce/resourceUrl/noDataErrorIllustration';
 
 export default class ErrorPanel extends LightningElement {
     /** Single or array of LDS errors */
     @api errors;
     /** Generic / user-friendly message */
     @api friendlyMessage = 'Error retrieving data';
-    /** Type of error message **/
-    @api type;
 
     viewDetails = false;
+    noDataSvgUrl = `${NODATA_SVG}#noDataErrorIllustration`;
 
     get errorMessages() {
         return reduceErrors(this.errors);
     }
 
-    handleShowDetailsClick() {
-        this.viewDetails = !this.viewDetails;
-    }
-
-    render() {
-        if (this.type === 'inlineMessage') return inlineMessage;
-        return noDataIllustration;
+    handleCheckboxChange(event) {
+        this.viewDetails = event.target.checked;
     }
 }

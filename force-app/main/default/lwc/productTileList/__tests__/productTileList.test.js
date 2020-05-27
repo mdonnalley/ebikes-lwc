@@ -216,11 +216,12 @@ describe('c-product-tile-list', () => {
                     const errorPanel = element.shadowRoot.querySelector(
                         'c-error-panel'
                     );
-                    // Click the "Show Details" link to render additional error messages
+                    // check the "Show Details" checkbox to render additional error messages
                     const lightningInput = errorPanel.shadowRoot.querySelector(
-                        'a'
+                        'lightning-input'
                     );
-                    lightningInput.dispatchEvent(new CustomEvent('click'));
+                    lightningInput.checked = true;
+                    lightningInput.dispatchEvent(new CustomEvent('change'));
                 })
                 .then(() => {
                     const errorPanel = element.shadowRoot.querySelector(
